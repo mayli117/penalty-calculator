@@ -1,0 +1,20 @@
+違約金試算工具
+
+
+
+
+
+
+
+
+{% if result %}
+計算結果
+優惠代碼：{{ result.code }}
+
+方案：{{ result.plan }}
+
+使用天數：{{ result.used_days }} 天
+
+違約金：{{ result.penalty }} 元
+
+{% endif %}
