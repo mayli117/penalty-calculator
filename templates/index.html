@@ -1,20 +1,30 @@
-違約金試算工具
+<!DOCTYPE html>
+<html>
+<head>
+    <title>違約金試算工具</title>
+</head>
+<body>
+    <h2>違約金試算工具</h2>
+    <form method="post" enctype="multipart/form-data">
+        <label>裝機日：</label><input type="date" name="start_date" required><br><br>
+        <label>退租日：</label><input type="date" name="end_date" required><br><br>
+        <label>頻道套餐：</label>
+        <select name="plan">
+            <option>自選餐(全選)</option>
+            <option>自選餐(自選20)</option>
+            <option>家庭特選餐</option>
+            <option>家庭豪華餐</option>
+        </select><br><br>
+        <label>上傳 PDF：</label><input type="file" name="pdf" accept=".pdf" required><br><br>
+        <button type="submit">計算</button>
+    </form>
 
-
-
-
-
-
-
-
-{% if result %}
-計算結果
-優惠代碼：{{ result.code }}
-
-方案：{{ result.plan }}
-
-使用天數：{{ result.used_days }} 天
-
-違約金：{{ result.penalty }} 元
-
-{% endif %}
+    {% if result %}
+        <h3>計算結果</h3>
+        <p>優惠代碼：{{ result.code }}</p>
+        <p>方案：{{ result.plan }}</p>
+        <p>使用天數：{{ result.used_days }} 天</p>
+        <p>違約金：<strong>{{ result.penalty }} 元</strong></p>
+    {% endif %}
+</body>
+</html>
